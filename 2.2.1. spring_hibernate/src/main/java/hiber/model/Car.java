@@ -1,7 +1,11 @@
 package hiber.model;
 
-import javax.persistence.*;
+import org.springframework.stereotype.Component;
 
+import javax.persistence.*;
+import java.util.Objects;
+
+@Component
 @Entity
 @Table (name = "cars")
 public class Car {
@@ -69,5 +73,16 @@ public class Car {
                 '}';
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Car)) return false;
+        Car car = (Car) o;
+        return series == car.series && Objects.equals(user, car.user) && Objects.equals(id, car.id) && Objects.equals(model, car.model);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(user, id, model, series);
+    }
 }
