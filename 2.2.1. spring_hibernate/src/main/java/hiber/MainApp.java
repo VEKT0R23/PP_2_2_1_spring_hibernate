@@ -44,10 +44,14 @@ public class MainApp {
          System.out.println();
       }
 
-      System.out.println("Найден " + userService.getUserByCar("Model1", 11111) + " с машиной Model1 ser:11111");
-      System.out.println("Найден " + userService.getUserByCar("Model2", 22222) + " с машиной Model2 ser:22222");
-      System.out.println("Найден " + userService.getUserByCar("Model3", 33333) + " с машиной Model3 ser:33333");
-      System.out.println("Найден " + userService.getUserByCar("Model4", 44444) + " с машиной Model4 ser:44444");
+      System.out.println("Найден " + userService.getUserByCar("Model1", 11111) +
+              " с машиной Model1 ser:11111");
+      System.out.println("Найден " + userService.getUserByCar("Model2", 22222) +
+              " с машиной Model2 ser:22222");
+      System.out.println("Найден " + userService.getUserByCar("Model3", 33333) +
+              " с машиной Model3 ser:33333");
+      System.out.println("Найден " + userService.getUserByCar("Model4", 44444) +
+              " с машиной Model4 ser:44444");
 
       context.close();
    }

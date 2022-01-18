@@ -5,9 +5,8 @@ import org.springframework.stereotype.Component;
 import javax.persistence.*;
 import java.util.Objects;
 
-@Component
 @Entity
-@Table (name = "cars")
+@Table(name = "cars")
 public class Car {
 
     @OneToOne
@@ -24,6 +23,14 @@ public class Car {
     @Column(name = "series")
     private int series;
 
+    public Car() {
+    }
+
+    public Car(String model, int series) {
+        this.model = model;
+        this.series = series;
+    }
+
     public User getUser() {
         return user;
     }
@@ -31,14 +38,6 @@ public class Car {
     public void setUser(User user) {
         this.user = user;
     }
-
-    public Car() {}
-
-    public Car(String model, int series) {
-        this.model = model;
-        this.series = series;
-    }
-
 
     public Long getId() {
         return id;
@@ -78,7 +77,8 @@ public class Car {
         if (this == o) return true;
         if (!(o instanceof Car)) return false;
         Car car = (Car) o;
-        return series == car.series && Objects.equals(user, car.user) && Objects.equals(id, car.id) && Objects.equals(model, car.model);
+        return series == car.series && Objects.equals(user, car.user) &&
+                Objects.equals(id, car.id) && Objects.equals(model, car.model);
     }
 
     @Override

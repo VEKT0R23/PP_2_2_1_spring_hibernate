@@ -27,6 +27,16 @@ public class AppConfig {
    private Environment env;
 
    @Bean
+   public Car carBean() {
+      return new Car();
+   }
+
+   @Bean
+   public User userBean() {
+      return new User(carBean());
+   }
+
+   @Bean
    public DataSource getDataSource() {
       DriverManagerDataSource dataSource = new DriverManagerDataSource();
       dataSource.setDriverClassName(env.getProperty("db.driver"));
