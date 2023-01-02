@@ -33,7 +33,8 @@ public class UserDaoImp implements UserDao {
       String hql = "from User user LEFT OUTER JOIN FETCH user.car where " +
               "user.car.model = :model and user.car.series = :series";
       TypedQuery<User> query=sessionFactory.getCurrentSession().createQuery(hql);
-      query.setParameter("model", model).setParameter("series", series);
+      query.setParameter("model", model);
+      query.setParameter("series", series);
       return query.getSingleResult();
    }
 
