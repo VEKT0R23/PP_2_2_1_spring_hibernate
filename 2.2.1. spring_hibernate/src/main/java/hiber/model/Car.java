@@ -7,10 +7,6 @@ import java.util.Objects;
 @Table(name = "cars")
 public class Car {
 
-    @OneToOne
-    @JoinColumn(name = "user_id")
-    private User user;
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -27,14 +23,6 @@ public class Car {
     public Car(String model, int series) {
         this.model = model;
         this.series = series;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
     }
 
     public Long getId() {
@@ -75,12 +63,12 @@ public class Car {
         if (this == o) return true;
         if (!(o instanceof Car)) return false;
         Car car = (Car) o;
-        return series == car.series && Objects.equals(user, car.user) &&
+        return series == car.series  &&
                 Objects.equals(id, car.id) && Objects.equals(model, car.model);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(user, id, model, series);
+        return Objects.hash(id, model, series);
     }
 }
