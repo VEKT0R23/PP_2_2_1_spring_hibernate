@@ -23,8 +23,12 @@ import java.util.Properties;
 @ComponentScan(value = "hiber")
 public class AppConfig {
 
-    @Autowired
     private Environment env;
+    
+    @Autowired
+    public UserDaoImp(SessionFactory sessionFactory){
+      this.sessionFactory = sessionFactory;
+   }
 
     @Bean
     public DataSource getDataSource() {
